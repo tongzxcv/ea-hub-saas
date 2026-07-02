@@ -46,6 +46,7 @@ export async function SiteHeader() {
             <>
               <Button
                 render={<Link href="/upload" />}
+                nativeButton={false}
                 size="sm"
                 className="hidden sm:inline-flex"
               >
@@ -58,13 +59,18 @@ export async function SiteHeader() {
             <>
               <Button
                 render={<Link href="/auth/login" />}
+                nativeButton={false}
                 variant="ghost"
                 size="sm"
                 className="hidden sm:inline-flex"
               >
                 Sign in
               </Button>
-              <Button render={<Link href="/auth/sign-up" />} size="sm">
+              <Button
+                render={<Link href="/auth/sign-up" />}
+                nativeButton={false}
+                size="sm"
+              >
                 Sign up
               </Button>
             </>
