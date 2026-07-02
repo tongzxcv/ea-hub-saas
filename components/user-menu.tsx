@@ -28,23 +28,25 @@ export function UserMenu({ profile }: { profile: Profile }) {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="rounded-full"
-          aria-label="Open user menu"
-        >
-          <Avatar className="size-8">
-            <AvatarImage
-              src={profile.avatar_url ?? undefined}
-              alt={profile.username}
-            />
-            <AvatarFallback className="bg-primary/15 text-xs font-medium text-primary">
-              {profile.username.slice(0, 2).toUpperCase()}
-            </AvatarFallback>
-          </Avatar>
-        </Button>
+      <DropdownMenuTrigger
+        render={
+          <Button
+            variant="ghost"
+            size="icon"
+            className="rounded-full"
+            aria-label="Open user menu"
+          />
+        }
+      >
+        <Avatar className="size-8">
+          <AvatarImage
+            src={profile.avatar_url ?? undefined}
+            alt={profile.username}
+          />
+          <AvatarFallback className="bg-primary/15 text-xs font-medium text-primary">
+            {profile.username.slice(0, 2).toUpperCase()}
+          </AvatarFallback>
+        </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-52">
         <DropdownMenuLabel>
@@ -56,24 +58,18 @@ export function UserMenu({ profile }: { profile: Profile }) {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem asChild>
-          <Link href={`/u/${profile.username}`}>
-            <User className="size-4" aria-hidden="true" />
-            Profile
-          </Link>
+        <DropdownMenuItem render={<Link href={`/users/${profile.username}`} />}>
+          <User className="size-4" aria-hidden="true" />
+          Profile
         </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link href="/upload">
-            <Upload className="size-4" aria-hidden="true" />
-            Upload file
-          </Link>
+        <DropdownMenuItem render={<Link href="/upload" />}>
+          <Upload className="size-4" aria-hidden="true" />
+          Upload file
         </DropdownMenuItem>
         {profile.role === 'admin' && (
-          <DropdownMenuItem asChild>
-            <Link href="/admin">
-              <Shield className="size-4" aria-hidden="true" />
-              Admin panel
-            </Link>
+          <DropdownMenuItem render={<Link href="/admin" />}>
+            <Shield className="size-4" aria-hidden="true" />
+            Admin panel
           </DropdownMenuItem>
         )}
         <DropdownMenuSeparator />
