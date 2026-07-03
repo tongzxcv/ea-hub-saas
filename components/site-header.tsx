@@ -44,26 +44,34 @@ export async function SiteHeader() {
           <SearchBar />
           {profile ? (
             <>
-              <Button asChild size="sm" className="hidden sm:inline-flex">
-                <Link href="/upload">
-                  <Upload className="size-4" aria-hidden="true" />
-                  Upload
-                </Link>
+              <Button
+                render={<Link href="/upload" />}
+                nativeButton={false}
+                size="sm"
+                className="hidden sm:inline-flex"
+              >
+                <Upload className="size-4" aria-hidden="true" />
+                Upload
               </Button>
               <UserMenu profile={profile} />
             </>
           ) : (
             <>
               <Button
-                asChild
+                render={<Link href="/auth/login" />}
+                nativeButton={false}
                 variant="ghost"
                 size="sm"
                 className="hidden sm:inline-flex"
               >
-                <Link href="/auth/login">Sign in</Link>
+                Sign in
               </Button>
-              <Button asChild size="sm">
-                <Link href="/auth/sign-up">Sign up</Link>
+              <Button
+                render={<Link href="/auth/sign-up" />}
+                nativeButton={false}
+                size="sm"
+              >
+                Sign up
               </Button>
             </>
           )}

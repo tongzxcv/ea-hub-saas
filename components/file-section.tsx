@@ -8,13 +8,28 @@ export function FileSection({
   icon,
   files,
   href,
+  emptyMessage,
 }: {
   title: string
   icon?: React.ReactNode
   files: FileRecord[]
   href?: string
+  emptyMessage?: string
 }) {
-  if (files.length === 0) return null
+  if (files.length === 0) {
+    if (!emptyMessage) return null
+    return (
+      <section aria-label={title}>
+        <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold tracking-tight">
+          {icon}
+          {title}
+        </h2>
+        <p className="rounded-xl border border-dashed border-border py-8 text-center text-sm text-muted-foreground">
+          {emptyMessage}
+        </p>
+      </section>
+    )
+  }
 
   return (
     <section aria-label={title}>
