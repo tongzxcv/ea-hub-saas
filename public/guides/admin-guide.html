@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EA Hub - คู่มือผู้ดูแลระบบ</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+    .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h1 { color: #c41e3a; margin-bottom: 30px; text-align: center; border-bottom: 3px solid #c41e3a; padding-bottom: 15px; }
+    h2 { color: #c41e3a; margin-top: 30px; margin-bottom: 15px; }
+    h3 { color: #333; margin-top: 20px; margin-bottom: 10px; }
+    p { margin-bottom: 10px; text-align: justify; }
+    ul, ol { margin-left: 20px; margin-bottom: 15px; }
+    li { margin-bottom: 8px; }
+    .section { page-break-inside: avoid; margin-bottom: 30px; }
+    .highlight { background: #ffe6e6; padding: 15px; border-left: 4px solid #c41e3a; margin: 15px 0; }
+    .step { background: #f9f9f9; padding: 15px; border-radius: 5px; margin: 10px 0; }
+    .warning { background: #fff3cd; padding: 15px; border-left: 4px solid #ff9800; margin: 15px 0; }
+    .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; color: #666; font-size: 12px; }
+    @media print { body { background: white; } .container { box-shadow: none; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔐 EA Hub - คู่มือผู้ดูแลระบบ (Admin)</h1>
+    <p style="text-align: center; color: #666; margin-bottom: 30px;">เฉพาะผู้ดูแลระบบและโมเดเรเตอร์เท่านั้น</p>
+
+    <div class="section">
+      <h2>📋 บทนำ</h2>
+      <p>Admin Panel ช่วยให้ผู้ดูแลระบบ (Admin) สามารถจัดการไฟล์, ผู้ใช้ และรายงานการละเมิดอย่างมีประสิทธิภาพ</p>
+      <p>หน้าที่หลักของ Admin:</p>
+      <ul>
+        <li>✅ ตรวจสอบและลบไฟล์ที่ไม่เหมาะสม</li>
+        <li>👥 จัดการบัญชีผู้ใช้ (เปลี่ยน role, ดูประวัติ)</li>
+        <li>🚩 ตรวจสอบรายงานการละเมิด (spamm, malware, ฯลฯ)</li>
+        <li>📊 ติดตามสถิติและการใช้งาน</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🚀 เข้าสู่ Admin Panel</h2>
+      <div class="step">
+        <ol>
+          <li>เข้าสู่ระบบด้วยบัญชี Admin</li>
+          <li>ไปที่ <strong>https://godzalgohub.vercel.app/admin</strong> (หรือกดเมนู User → Admin Panel)</li>
+          <li>จะเห็นหน้า Dashboard พร้อมแท็บ 3 อัน:
+            <ul>
+              <li><strong>Files:</strong> จัดการไฟล์</li>
+              <li><strong>Users:</strong> จัดการผู้ใช้</li>
+              <li><strong>Reports:</strong> จัดการรายงาน</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+      <div class="warning">
+        ⚠️ <strong>ข้อมูลการ์ด:</strong> Admin Panel ปกป้อง RLS (Row Level Security) - คุณสามารถดำเนินการกับผู้ใช้อื่นได้เท่านั้น
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📁 แท็บ Files - จัดการไฟล์</h2>
+      <h3>ดูและค้นหาไฟล์</h3>
+      <div class="step">
+        <ul>
+          <li>ตารางแสดง: Title, Uploader, Category, Status, Downloads, Rating, Actions</li>
+          <li>ค้นหาด้วยชื่อไฟล์หรือผู้อัปโหลด</li>
+          <li>เรียงลำดับตามคอลัมน์ (กดหัวตาราง)</li>
+        </ul>
+      </div>
+
+      <h3>เปลี่ยนสถานะไฟล์</h3>
+      <div class="step">
+        <ol>
+          <li>กดคอลัมน์ <strong>"Status"</strong> ในแถวไฟล์ที่ต้องการ</li>
+          <li>เลือกสถานะใหม่:
+            <ul>
+              <li><strong>verified:</strong> ไฟล์ถูกอนุมัติและปลอดภัย</li>
+              <li><strong>testing:</strong> ยังอยู่ระหว่างทดสอบ (ค่าเริ่มต้น)</li>
+              <li><strong>stable:</strong> เสถียร พร้อมใช้งาน</li>
+              <li><strong>experimental:</strong> ทดลอง อาจมีปัญหา</li>
+              <li><strong>deprecated:</strong> ล้าสมัย ไม่แนะนำ</li>
+              <li><strong>archived:</strong> เก็บถาวร (ซ่อนจากการค้นหา)</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <h3>ลบไฟล์</h3>
+      <div class="step">
+        <ol>
+          <li>กลับไปที่แถวไฟล์ → กดปุ่ม <strong>🗑️ Delete</strong> (มุมขวา)</li>
+          <li>ยืนยันการลบ (บันทึกประวัติการลบ)</li>
+          <li>ไฟล์และเวอร์ชันทั้งหมด ตลอดจนคอมเมนต์และรีวิว จะถูกลบ</li>
+        </ol>
+      </div>
+      <div class="highlight">
+        💡 <strong>เมื่อใดควรลบไฟล์:</strong> Malware ที่ตรวจพบ, ลิงก์ที่ถูกเก็บถาวร, ไฟล์ scam/fake, ข้อมูลส่วนตัว, ความละเมิด DMCA
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>👥 แท็บ Users - จัดการผู้ใช้</h2>
+      <h3>ดูข้อมูลผู้ใช้</h3>
+      <div class="step">
+        <ul>
+          <li>ตารางแสดง: Username, Email, Role, Created, Uploads, Actions</li>
+          <li>ค้นหา/กรอง: ชื่อผู้ใช้ หรือ email</li>
+        </ul>
+      </div>
+
+      <h3>เปลี่ยนบทบาท (Role)</h3>
+      <div class="step">
+        <ol>
+          <li>กดคอลัมน์ <strong>"Role"</strong> ในแถวผู้ใช้</li>
+          <li>เลือกบทบาทใหม่:
+            <ul>
+              <li><strong>member:</strong> ผู้ใช้ทั่วไป (ค่าเริ่มต้น) - อัปโหลดและรีวิว</li>
+              <li><strong>uploader:</strong> อัปโหลดโดยไม่จำกัด (ในอนาคต)</li>
+              <li><strong>moderator:</strong> โมเดเรเตอร์ - จัดการรายงาน (ในอนาคต)</li>
+              <li><strong>admin:</strong> ผู้ดูแลระบบ - เข้าถึง Admin Panel</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <h3>ดูการอัปโหลดของผู้ใช้</h3>
+      <p>กดชื่อผู้ใช้หรือปุ่ม "View Uploads" เพื่อดูไฟล์ที่ผู้ใช้นั้นอัปโหลด</p>
+    </div>
+
+    <div class="section">
+      <h2>🚩 แท็บ Reports - จัดการรายงาน</h2>
+      <h3>ตรวจสอบรายงาน</h3>
+      <div class="step">
+        <ul>
+          <li>ตารางแสดง: Reason, Type, Reported, Created, Status, Actions</li>
+          <li>ประเภท: File, Comment, Review</li>
+          <li>สาเหตุทั่วไป: Spam, Malware, Inappropriate, Copyright, Other</li>
+        </ul>
+      </div>
+
+      <h3>ดำเนินการต่อรายงาน</h3>
+      <div class="step">
+        <ol>
+          <li>คลิกแถวรายงาน เพื่อดูรายละเอียด</li>
+          <li>ตรวจสอบ:
+            <ul>
+              <li>เรื่องที่รายงาน (ไฟล์/คอมเมนต์/รีวิว)</li>
+              <li>ความเห็นของผู้รายงาน</li>
+            </ul>
+          </li>
+          <li>ตั้งค่าสถานะเป็น:
+            <ul>
+              <li><strong>resolved:</strong> จัดการแล้ว (ลบหรือแก้ไข)</li>
+              <li><strong>dismissed:</strong> ไม่มีปัญหา ปล่อยไป</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+      <div class="highlight">
+        💡 <strong>ขั้นตอนที่แนะนำ:</strong> Spam/Malware → ลบไฟล์ + set status=resolved | Inappropriate → ลบคอมเมนต์ + resolved | False Report → dismissed
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📊 สถิติและการตรวจสอบ</h2>
+      <p>ข้อมูลที่แสดงใน Admin Panel (อัปเดตแบบ real-time):</p>
+      <ul>
+        <li>📁 <strong>Files:</strong> จำนวนไฟล์ทั้งหมด, status distribution</li>
+        <li>👥 <strong>Users:</strong> จำนวนผู้ใช้ทั้งหมด, บทบาท</li>
+        <li>📥 <strong>Downloads:</strong> ยอดรวมการดาวน์โหลด</li>
+        <li>⭐ <strong>Ratings:</strong> ค่าเฉลี่ยดาว</li>
+        <li>🚩 <strong>Pending Reports:</strong> รายงานที่ยังไม่ได้จัดการ</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🔒 นโยบายและมาตรฐาน</h2>
+      <h3>ไฟล์ที่ต้องลบ</h3>
+      <ul>
+        <li>⚠️ Malware, virus, trojan</li>
+        <li>⚠️ Scam/Fake (ทำสัญญาเท็จ, ปลอมชื่อผู้พัฒนา)</li>
+        <li>⚠️ ลิงก์ห้ามแท้ (ไฟล์ลบ/หมดอายุ)</li>
+        <li>⚠️ ข้อมูลส่วนตัว (ชื่อ, ที่อยู่, หมายเลขโทรศัพท์)</li>
+        <li>⚠️ ความละเมิด DMCA (ลิขสิทธิ์ผู้อื่น)</li>
+        <li>⚠️ ไฟล์ที่มีพฤติกรรมสงสัย (ติดต่อผู้พัฒนา ให้อธิบายก่อน)</li>
+      </ul>
+
+      <h3>ไม่ควรลบ</h3>
+      <ul>
+        <li>✅ ไฟล์ที่มีคะแนนต่ำ (ปล่อยให้ผู้ใช้ตัดสินใจ)</li>
+        <li>✅ ความเห็นที่ไม่ชอบใจ แต่ไม่เป็นสแปม (ปล่อยให้เป็นอิสระ)</li>
+        <li>✅ EA ที่ "อาจ" จำนวนแต่ยังไม่ได้พยายามลบหรือให้ Malware scan</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>⚙️ การดูแลประจำวัน</h2>
+      <h3>Daily Tasks</h3>
+      <ul>
+        <li>✓ ตรวจสอบ Reports ที่ pending</li>
+        <li>✓ ลบรายงานที่ resolved เก่า (เก็บถาวร)</li>
+        <li>✓ ดูไฟล์ใหม่ที่อัปโหลด (เช่น "testing" status)</li>
+        <li>✓ ตรวจสอบคอมเมนต์/รีวิว spam</li>
+      </ul>
+
+      <h3>Weekly Tasks</h3>
+      <ul>
+        <li>✓ สรุปข้อมูล (Users, Files, Downloads)</li>
+        <li>✓ ตรวจสอบผู้ใช้ที่ระงับหรือ ban (ถ้ามี)</li>
+        <li>✓ ส่วนประกาศข้อมูล/แนวทางให้ชุมชน</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>❓ คำถามที่พบบ่อย</h2>
+      <h3>Q: ฉันลบไฟล์โดยไม่ได้ตั้งใจ สามารถเรียกคืนได้ไหม?</h3>
+      <p><strong>A:</strong> ในปัจจุบันไม่มีฟีเจอร์กู้คืน แต่ติดต่อผู้อัปโหลด ให้อัปโหลดใหม่ได้</p>
+
+      <h3>Q: ควรลบคอมเมนต์ที่ไม่ชอบใจไหม?</h3>
+      <p><strong>A:</strong> ไม่ เว้นแต่มันเป็น spam/hate speech/malicious เท่านั้น - ให้อิสระในการแสดงความเห็น</p>
+
+      <h3>Q: ผู้ใช้พยายามอัปโหลด Malware สองครั้ง ควรทำอะไร?</h3>
+      <p><strong>A:</strong> ลบไฟล์ + ติดตามผู้ใช้ + ส่งข้อความเตือน (ในอนาคต: ระงับ/ban account)</p>
+
+      <h3>Q: รายงานใดๆเกี่ยวกับไฟล์เก่า</h3>
+      <p><strong>A:</strong> Set status=dismissed (ไม่มีเหตุผลที่จะจัดการ) อย่างไรก็ตาม ดูรายละเอียด ถ้า legitimate ให้แจ้งผู้อัปโหลด</p>
+    </div>
+
+    <div class="footer">
+      <p>EA Hub Admin Panel Documentation</p>
+      <p>© 2026 Godzalgohub Admin Team</p>
+    </div>
+  </div>
+</body>
+</html>

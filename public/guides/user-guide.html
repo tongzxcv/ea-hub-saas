@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EA Hub - คู่มือการใช้งาน</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+    .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h1 { color: #1a1a2e; margin-bottom: 30px; text-align: center; border-bottom: 3px solid #0066cc; padding-bottom: 15px; }
+    h2 { color: #0066cc; margin-top: 30px; margin-bottom: 15px; }
+    h3 { color: #333; margin-top: 20px; margin-bottom: 10px; }
+    p { margin-bottom: 10px; text-align: justify; }
+    ul, ol { margin-left: 20px; margin-bottom: 15px; }
+    li { margin-bottom: 8px; }
+    .section { page-break-inside: avoid; margin-bottom: 30px; }
+    .highlight { background: #e3f2fd; padding: 15px; border-left: 4px solid #0066cc; margin: 15px 0; }
+    .step { background: #f9f9f9; padding: 15px; border-radius: 5px; margin: 10px 0; }
+    .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; color: #666; font-size: 12px; }
+    @media print { body { background: white; } .container { box-shadow: none; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📚 EA Hub - คู่มือการใช้งาน</h1>
+    <p style="text-align: center; color: #666; margin-bottom: 30px;">เว็บไซต์แชร์ Expert Advisors, Indicators และ Trading Tools</p>
+
+    <div class="section">
+      <h2>📖 บทนำ</h2>
+      <p>EA Hub เป็นแพลตฟอร์มชุมชนสำหรับผู้ค้าที่ต้องการแชร์ และดาวน์โหลด Expert Advisors (EA), Indicators, Presets และ Trading Tools สำหรับ MetaTrader 4/5 และสถานีซื้อขายอื่นๆ</p>
+      <p>ผู้ใช้สามารถ:</p>
+      <ul>
+        <li>👤 สมัครสมาชิกและสร้างโปรไฟล์เป็นของตัวเอง</li>
+        <li>📤 อัปโหลดไฟล์ EA, Indicator และเครื่องมืออื่นๆ</li>
+        <li>⭐ ให้ดาวและรีวิว พร้อมแสดงความคิดเห็น</li>
+        <li>💬 แสดงความเห็นและสนทนากับผู้พัฒนา</li>
+        <li>📥 ดาวน์โหลดและติดตามสถิติการใช้</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🚀 เริ่มต้นใช้งาน</h2>
+      <h3>1. สมัครสมาชิก</h3>
+      <div class="step">
+        <ol>
+          <li>ไปที่ <strong>https://godzalgohub.vercel.app</strong></li>
+          <li>กดปุ่ม <strong>"Sign up"</strong> (มุมขวาบน)</li>
+          <li>กรอกข้อมูล:
+            <ul>
+              <li>Username: ชื่อผู้ใช้งาน (ใช้ได้ 1 ครั้ง)</li>
+              <li>Email: อีเมลของคุณ</li>
+              <li>Password: รหัสผ่าน (ต้องจำ 8 ตัวอักษรขึ้นไป)</li>
+            </ul>
+          </li>
+          <li>กดปุ่ม <strong>"Sign up"</strong> → ระบบจะเข้าสู่ระบบโดยอัตโนมัติ</li>
+        </ol>
+      </div>
+
+      <h3>2. เข้าสู่ระบบ</h3>
+      <div class="step">
+        <ol>
+          <li>กดปุ่ม <strong>"Sign in"</strong> (มุมขวาบน)</li>
+          <li>กรอก Email และ Password</li>
+          <li>กดปุ่ม <strong>"Sign in"</strong> → เข้าสู่ระบบสำเร็จ</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📤 อัปโหลดไฟล์</h2>
+      <h3>ขั้นตอนการอัปโหลด</h3>
+      <div class="step">
+        <ol>
+          <li>เข้าสู่ระบบแล้ว กดปุ่ม <strong>"Upload"</strong> (เมนูด้านบน)</li>
+          <li>กรอกข้อมูลพื้นฐาน:
+            <ul>
+              <li><strong>Title:</strong> ชื่อ EA/Indicator (เช่น "Grid Scalper EA v2.0")</li>
+              <li><strong>Category:</strong> เลือกจากรายการ (Expert Advisors, Indicators, Presets, Tools)</li>
+              <li><strong>Description:</strong> คำอธิบายรายละเอียด (มีประโยชน์อะไร, ตั้งค่าไหน)</li>
+            </ul>
+          </li>
+          <li>กรอกข้อมูลเวอร์ชัน:
+            <ul>
+              <li><strong>Version:</strong> เวอร์ชันปัจจุบัน (เช่น "1.0", "2.5.1")</li>
+              <li><strong>Changelog:</strong> สิ่งที่เปลี่ยนแปลง</li>
+            </ul>
+          </li>
+          <li>เพิ่มแท็ก (Tags) เพื่อให้คนหาง่าย:
+            <ul>
+              <li>ตัวอย่าง: MT5, Scalping, Grid, Forex, Gold เป็นต้น</li>
+            </ul>
+          </li>
+          <li>อัปโหลดไฟล์:
+            <ul>
+              <li><strong>File:</strong> ไฟล์ EA/Indicator (.ex4, .ex5, .mq4, .mq5, .zip)</li>
+              <li><strong>Screenshots:</strong> ภาพตัวอย่างการทำงาน (จำเป็น 1-3 ภาพ)</li>
+            </ul>
+          </li>
+          <li>กดปุ่ม <strong>"Upload"</strong> → อัปโหลดสำเร็จ</li>
+        </ol>
+      </div>
+      <div class="highlight">
+        <strong>💡 เคล็ดลับ:</strong> ใช้ภาพหน้าจอที่ชัดเจนของ backtest หรือผลการซื้อขายเพื่อให้ผู้ใช้มั่นใจขณะดาวน์โหลด
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🔍 ค้นหาและดูรายละเอียด</h2>
+      <h3>ค้นหาไฟล์</h3>
+      <div class="step">
+        <ol>
+          <li>ไปที่หน้า <strong>"Browse"</strong> เพื่อดูไฟล์ทั้งหมด</li>
+          <li>ใช้ตัวกรอง:
+            <ul>
+              <li><strong>Search:</strong> พิมพ์ชื่อหรือคำหลัก</li>
+              <li><strong>Category:</strong> เลือกประเภท (EA, Indicator, ฯลฯ)</li>
+              <li><strong>Sort:</strong> เรียงลำดับ (Trending, Latest, Top Rated, Most Downloaded)</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <h3>ดูรายละเอียดและดาวน์โหลด</h3>
+      <div class="step">
+        <ol>
+          <li>คลิกไฟล์ที่ต้องการ → เข้าหน้า Detail</li>
+          <li>ดูข้อมูล:
+            <ul>
+              <li>📝 คำอธิบายและ Changelog</li>
+              <li>📸 ภาพตัวอย่าง (สไลด์).</li>
+              <li>⭐ ดาวและรีวิูจากผู้ใช้อื่น</li>
+              <li>📊 จำนวนดาวน์โหลด, มุมมอง</li>
+            </ul>
+          </li>
+          <li>กดปุ่ม <strong>"Download"</strong> เพื่อดาวน์โหลดไฟล์ล่าสุด</li>
+          <li>เลือกเวอร์ชันเก่าจาก "Version History" (ถ้าต้องการ)</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>⭐ รีวิวและให้คะแนน</h2>
+      <div class="step">
+        <ol>
+          <li>ในหน้าไฟล์ รีย์ลต้องเข้าสู่ระบบ</li>
+          <li>ไปที่หัวข้อ <strong>"Reviews"</strong></li>
+          <li>กดปุ่ม <strong>"Add Review"</strong></li>
+          <li>กรอกข้อมูล:
+            <ul>
+              <li><strong>Rating:</strong> ให้ดาว 1-5 ดวง</li>
+              <li><strong>Title:</strong> หัวข้อรีวิว (เช่น "ทำงานได้ดี แนะนำ!")</li>
+              <li><strong>Comment:</strong> ความเห็นของคุณ</li>
+            </ul>
+          </li>
+          <li>กดปุ่ม <strong>"Submit"</strong></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>💬 ความเห็นและสนทนา</h2>
+      <p>ด้านล่างของหน้าไฟล์จะมีส่วน <strong>"Comments"</strong> ที่คุณสามารถ:</p>
+      <ul>
+        <li>แสดงความเห็นและถามผู้พัฒนา</li>
+        <li>ตอบกลับความเห็นของผู้อื่น</li>
+        <li>แบ่งประสบการณ์การใช้</li>
+      </ul>
+      <p>ทั้งหมดต้อง <strong>เข้าสู่ระบบก่อน</strong></p>
+    </div>
+
+    <div class="section">
+      <h2>👤 โปรไฟล์ผู้ใช้</h2>
+      <div class="step">
+        <ol>
+          <li>กดไอคอน <strong>👤 (User Menu)</strong> มุมขวาบน</li>
+          <li>เลือก <strong>"Profile"</strong></li>
+          <li>ดูข้อมูล:
+            <ul>
+              <li>Username และข้อมูลส่วนตัว</li>
+              <li>ไฟล์ที่อัปโหลด</li>
+              <li>รีวิวที่เขียน</li>
+              <li>声誉/Reputation score</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>❓ คำถามที่พบบ่อย</h2>
+      <h3>Q: ต้องเข้าสู่ระบบจึงจะดาวน์โหลดได้ไหม?</h3>
+      <p><strong>A:</strong> ใช่ต้องเข้าสู่ระบบก่อน (ระบบต้องติดตามว่าใครดาวน์โหลดอะไร)</p>
+
+      <h3>Q: ต้องอัปโหลดไฟล์จริงไหม?</h3>
+      <p><strong>A:</strong> ได้ เอาไฟล์ .ex4/.ex5/.mq4/.mq5 หรือ .zip ที่บีบอัด</p>
+
+      <h3>Q: ดาวน์โหลดจ่ายเงินไหม?</h3>
+      <p><strong>A:</strong> ไม่ ฟรีทั้งหมด</p>
+
+      <h3>Q: ลบไฟล์ที่อัปโหลดได้ไหม?</h3>
+      <p><strong>A:</strong> ได้ไปที่โปรไฟล์ → คลิกไฟล์ → กดปุ่มลบ (เฉพาะไฟล์ของตัวเอง)</p>
+    </div>
+
+    <div class="footer">
+      <p>EA Hub - Community Platform for Traders</p>
+      <p>© 2026 Godzalgohub. ไม่มีสิทธิ์ทั้งหมด (ใจเย็น)</p>
+    </div>
+  </div>
+</body>
+</html>
