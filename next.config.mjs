@@ -6,11 +6,11 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // If you deploy the app under a subpath (e.g. https://example.com/ea-hub/),
-  // enabling basePath and assetPrefix ensures Next serves static assets from
-  // the subpath. Remove or adjust these if you deploy at the root.
-  basePath: '/ea-hub',
-  assetPrefix: '/ea-hub',
+  // Vercel deploys at the root domain, so basePath must be empty by default.
+  // If you ever deploy under a subpath (e.g. https://example.com/ea-hub/),
+  // set NEXT_PUBLIC_BASE_PATH=/ea-hub in the environment.
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || '',
 }
 
 export default nextConfig
