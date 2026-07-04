@@ -13,7 +13,6 @@ import {
 import { createClient } from '@/lib/supabase/client'
 import type { Profile } from '@/lib/types'
 import { LogOut, Shield, Upload, User } from 'lucide-react'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 export function UserMenu({ profile }: { profile: Profile }) {
@@ -58,16 +57,16 @@ export function UserMenu({ profile }: { profile: Profile }) {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem render={<Link href={`/users/${profile.username}`} />}>
+        <DropdownMenuItem onClick={() => router.push(`/users/${profile.username}`)}>
           <User className="size-4" aria-hidden="true" />
           Profile
         </DropdownMenuItem>
-        <DropdownMenuItem render={<Link href="/upload" />}>
+        <DropdownMenuItem onClick={() => router.push('/upload')}>
           <Upload className="size-4" aria-hidden="true" />
           Upload file
         </DropdownMenuItem>
         {profile.role === 'admin' && (
-          <DropdownMenuItem render={<Link href="/admin" />}>
+          <DropdownMenuItem onClick={() => router.push('/admin')}>
             <Shield className="size-4" aria-hidden="true" />
             Admin panel
           </DropdownMenuItem>
