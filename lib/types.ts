@@ -1,12 +1,12 @@
 export type Role = 'admin' | 'moderator' | 'uploader' | 'member'
 
 export type FileStatus =
+  | 'unverified'
   | 'verified'
-  | 'testing'
-  | 'stable'
-  | 'experimental'
-  | 'deprecated'
-  | 'archived'
+  | 'pending'
+  | 'approved'
+  | 'denied'
+  | 'expired'
 
 export interface Profile {
   id: string

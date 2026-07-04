@@ -19,7 +19,7 @@ import { toast } from "sonner"
 import { updateFileStatus, deleteFile } from "@/lib/admin-actions"
 import type { FileRecord, FileStatus } from "@/lib/types"
 
-const STATUSES: FileStatus[] = ["verified", "testing", "stable", "experimental", "deprecated", "archived"]
+const STATUSES: FileStatus[] = ["unverified", "pending", "approved", "verified", "denied", "expired"]
 
 export function AdminFilesTable({ files }: { files: FileRecord[] }) {
   async function handleStatusChange(fileId: string, status: string) {
