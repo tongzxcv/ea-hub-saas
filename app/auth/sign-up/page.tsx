@@ -57,7 +57,19 @@ export default function SignUpPage() {
       setIsLoading(false)
       return
     }
-    router.push('/auth/sign-up-success')
+
+    // New accounts are auto-confirmed, so sign in immediately.
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    })
+    if (signInError) {
+      // Fall back to the success page if instant sign-in is unavailable.
+      router.push('/auth/sign-up-success')
+      return
+    }
+    router.push('/')
+    router.refresh()
   }
 
   return (
