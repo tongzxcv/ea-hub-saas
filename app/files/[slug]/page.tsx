@@ -196,7 +196,7 @@ export default async function FileDetailPage({ params }: { params: Promise<{ slu
 
         <TabsContent value="reviews" className="mt-4">
           <div className="flex flex-col gap-4">
-            {user && user.id !== file.uploader_id && <ReviewForm fileId={file.id} fileSlug={file.slug} />}
+            {user && <ReviewForm fileId={file.id} fileSlug={file.slug} />}
             <ReviewList reviews={reviews as Review[]} fileSlug={file.slug} isLoggedIn={!!user} />
           </div>
         </TabsContent>
